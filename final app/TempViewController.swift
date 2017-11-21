@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TempViewController.swift
 //  final app
 //
 //  Created by Ethan Mathew on 11/15/17.
@@ -9,6 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //MARK: Properties
+    
+    @IBAction func viewNewData(_ sender: UIButton) {
+        
+    }
+    @IBAction func recordNewData(_ sender: UIButton) {
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

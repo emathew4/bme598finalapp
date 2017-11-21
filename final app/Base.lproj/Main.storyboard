@@ -13,7 +13,7 @@
         <!--TempSense-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="final_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TempViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,6 +32,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="viewNewData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RBb-1e-C0c"/>
                                     <segue destination="y8U-bb-gRU" kind="show" id="DIs-ap-XaP"/>
                                 </connections>
                             </button>
@@ -42,6 +43,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="recordNewData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F0C-B7-eX9"/>
                                     <segue destination="IZg-xL-uu7" kind="show" id="xOQ-tr-9l1"/>
                                 </connections>
                             </button>
@@ -50,6 +52,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="TempSense" id="jfC-Gr-yWn"/>
+                    <connections>
+                        <outlet property="recordNewData" destination="K8i-fb-rs5" id="QdZ-N9-0sL"/>
+                        <outlet property="viewData" destination="W3X-td-7vY" id="R5P-3Q-3cO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
