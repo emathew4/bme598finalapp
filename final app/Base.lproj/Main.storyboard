@@ -87,7 +87,9 @@
                             <outlet property="delegate" destination="fRS-d2-M7F" id="ulv-XU-hvb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Data" id="Epv-L0-RGR"/>
+                    <navigationItem key="navigationItem" title="Data" id="Epv-L0-RGR">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="9DO-Cb-Hz8"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36s-G9-Ivb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="2540" y="17.541229385307346"/>
         </scene>
-        <!--View Controller-->
+        <!--Record New Data View Controller-->
         <scene sceneID="2BE-TJ-34E">
             <objects>
-                <viewController id="FCM-8j-DE8" sceneMemberID="viewController">
+                <viewController id="FCM-8j-DE8" customClass="RecordNewDataViewController" customModule="final_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NyJ-P4-gLM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
