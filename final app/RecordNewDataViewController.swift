@@ -17,12 +17,19 @@ class RecordNewDataViewController: UIViewController {
     var isTimerRunning = false
     
     @IBOutlet weak var timerLabel: UITextField!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    
+    
     @IBAction func startButtonTapped(_ sender: UIButton) {
-        runTimer()
+        if isTimerRunning == false {
+            runTimer()
+        }
     }
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         timer.invalidate()
+        isTimerRunning = false
     }
     
     override func viewDidLoad() {
@@ -71,11 +78,25 @@ class RecordNewDataViewController: UIViewController {
     
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(RecordNewDataViewController.updateTimer)), userInfo: nil, repeats: true)
+        isTimerRunning = true
     }
     
     @objc func updateTimer() {
-        seconds -= 1
-        timerLabel.text = "\(seconds)"
+        if seconds < 1 {
+            timer.invalidate()
+        } else {
+            seconds -= 1
+            timerLabel.text = timeString(time:TimeInterval(seconds))
+        }
+
+    }
+    
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        
+        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
     }
 
 }
