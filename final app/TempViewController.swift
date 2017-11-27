@@ -8,17 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TempViewController: UIViewController {
     
     //MARK: Properties
     
-    @IBAction func viewNewData(_ sender: UIButton) {
-        
-    }
-    @IBAction func recordNewData(_ sender: UIButton) {
-    }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

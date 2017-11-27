@@ -12,8 +12,19 @@ class RecordNewDataViewController: UIViewController {
     
     //MARK: Properties
     
+    var seconds = 30
+    var timer = Timer()
+    var isTimerRunning = false
     
-
+    @IBOutlet weak var timerLabel: UITextField!
+    @IBAction func startButtonTapped(_ sender: UIButton) {
+        runTimer()
+    }
+    
+    @IBAction func stopButtonTapped(_ sender: UIButton) {
+        timer.invalidate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackButton()
@@ -40,6 +51,8 @@ class RecordNewDataViewController: UIViewController {
     
     //MARK: Private Methods
     
+    // implement back button functionality
+    
     func addBackButton() {
         let backButton = UIButton(type: .custom)
         backButton.setImage(UIImage(named: "BackButton.png"), for: .normal)
@@ -52,6 +65,17 @@ class RecordNewDataViewController: UIViewController {
     
     @objc func backAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // Timer methods
+    
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(RecordNewDataViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        seconds -= 1
+        timerLabel.text = "\(seconds)"
     }
 
 }

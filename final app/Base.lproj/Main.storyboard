@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FCM-8j-DE8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TempSense-->
+        <!--TempViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TempViewController" sceneMemberID="viewController">
+                <viewController title="TempViewController" id="BYZ-38-t0r" customClass="TempViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                                 </state>
                                 <connections>
                                     <action selector="viewNewData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RBb-1e-C0c"/>
-                                    <segue destination="y8U-bb-gRU" kind="show" id="DIs-ap-XaP"/>
+                                    <segue destination="y8U-bb-gRU" kind="show" id="fOX-eI-T3d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8i-fb-rs5">
@@ -44,7 +44,7 @@
                                 </state>
                                 <connections>
                                     <action selector="recordNewData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F0C-B7-eX9"/>
-                                    <segue destination="IZg-xL-uu7" kind="show" id="xOQ-tr-9l1"/>
+                                    <segue destination="IZg-xL-uu7" kind="show" id="Ufv-yb-5Ez"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,8 +53,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="TempSense" id="jfC-Gr-yWn"/>
                     <connections>
-                        <outlet property="recordNewData" destination="K8i-fb-rs5" id="QdZ-N9-0sL"/>
-                        <outlet property="viewData" destination="W3X-td-7vY" id="R5P-3Q-3cO"/>
+                        <outlet property="recordNewData" destination="K8i-fb-rs5" id="fOu-38-LOC"/>
+                        <outlet property="title" destination="7Oy-8p-I4z" id="eT0-ms-ymK"/>
+                        <outlet property="viewData" destination="W3X-td-7vY" id="67H-sU-Iv3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -152,11 +153,17 @@
                                 <rect key="frame" x="52" y="72" width="76" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="FCM-8j-DE8" eventType="touchUpInside" id="RkR-Gk-emh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUP-VX-8tz">
                                 <rect key="frame" x="237" y="72" width="88" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopButtonTapped:" destination="FCM-8j-DE8" eventType="touchUpInside" id="i6g-6o-7PZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pb-dv-pXG">
                                 <rect key="frame" x="16" y="142" width="343" height="85"/>
@@ -189,6 +196,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="BjH-bI-e67"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="timerLabel" destination="w0v-6a-Q5v" id="fyX-W5-oCa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVS-cL-McI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
