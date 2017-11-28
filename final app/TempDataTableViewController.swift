@@ -65,7 +65,7 @@ class TempDataTableViewController: UITableViewController {
         let dateString = formatter.string(from: date)
         cell.tempDate.text = dateString
         
-        cell.tempLength.text = "\(tempData.time.last!) s  "
+        cell.tempLength.text = "\(tempData.time.last!) s"
         
         return cell
     }
