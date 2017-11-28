@@ -47,7 +47,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="y8U-bb-gRU" kind="show" id="hGK-Hm-YWn"/>
+                                    <segue destination="x3w-I9-ttd" kind="show" id="7Z1-93-BAt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgF-cq-Obh">
@@ -86,7 +86,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="LWQ-Lp-ycj" kind="show" id="ncw-mC-aXh"/>
+                                    <segue destination="x3w-I9-ttd" kind="show" id="ncw-mC-aXh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="1736.8" y="17.541229385307346"/>
         </scene>
-        <!--View Controller-->
+        <!--Bar Chart View Controller-->
         <scene sceneID="YQJ-5r-Rsa">
             <objects>
-                <viewController id="LWQ-Lp-ycj" sceneMemberID="viewController">
+                <viewController id="LWQ-Lp-ycj" customClass="BarChartViewController" customModule="final_app" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ReV-t6-jft">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-XP-l0z">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-XP-l0z" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="16" y="64" width="343" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,10 +141,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="hZe-mZ-S6g"/>
                     </view>
+                    <navigationItem key="navigationItem" id="L7R-0I-eJz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="up0-43-cMA">
+                            <connections>
+                                <action selector="savesChart:" destination="LWQ-Lp-ycj" id="Uc0-Ga-MRb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barChartView" destination="eB6-XP-l0z" id="hbb-Z0-xgl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QkR-A8-buh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2540" y="17.541229385307346"/>
+            <point key="canvasLocation" x="3124" y="18"/>
         </scene>
         <!--Record New Data View Controller-->
         <scene sceneID="2BE-TJ-34E">
@@ -247,5 +257,26 @@
             </objects>
             <point key="canvasLocation" x="1025" y="779"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8iA-gK-mG7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x3w-I9-ttd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0ZB-e3-ZC6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LWQ-Lp-ycj" kind="relationship" relationship="rootViewController" id="OXo-Hg-AUa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="00S-KO-iEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2441" y="17"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7Z1-93-BAt"/>
+    </inferredMetricsTieBreakers>
 </document>
