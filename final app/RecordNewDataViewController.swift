@@ -44,14 +44,16 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
             if central.state == CBManagerState.poweredOn {
                 central.scanForPeripherals(withServices: nil, options: nil)
                 isBluetoothOn = true
+                self.startButton.isEnabled = true
                 print("Starting scan")
             } else {
                 isBluetoothOn = false
-                
+                self.startButton.isEnabled = false
                 let bluetoothAlert = UIAlertController(title: "Bluetooth", message: "Please turn your Bluetooth on", preferredStyle: UIAlertControllerStyle.alert)
                 bluetoothAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                 
                 self.present(bluetoothAlert, animated: true, completion: nil)
+                
                 print("Bluetooth not available.")
             }
         } else {
@@ -122,8 +124,6 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
             
             
             var tempA = characteristic.value
-            print(tempA as! NSData)
-            
             let value = tempA?.withUnsafeMutableBytes{(ptr: UnsafeMutablePointer<Double>) ->Double in return ptr.pointee}
             newTemp = value!*24/(1.1363509854348671e-322)
             
