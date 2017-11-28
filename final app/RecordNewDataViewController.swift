@@ -23,19 +23,31 @@ class RecordNewDataViewController: UIViewController {
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
         if isTimerRunning == false {
+            if let text = timerLabel.text, !text.isEmpty{
+            let number: Int = {Int(self.timerLabel.text!)!}()
+                seconds = number} else {
+                seconds = 30
+            }
             runTimer()
+            timerLabel.isUserInteractionEnabled = false
+            self.startButton.isEnabled = false
+            
         }
     }
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         timer.invalidate()
         isTimerRunning = false
+        startButton.isEnabled = true
+        stopButton.isEnabled = false
+        timerLabel.isUserInteractionEnabled = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackButton()
-        
+        stopButton.isEnabled = false
+        addDoneButtonOnKeyboard()
 
         // Do any additional setup after loading the view.
     }
@@ -79,6 +91,7 @@ class RecordNewDataViewController: UIViewController {
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(RecordNewDataViewController.updateTimer)), userInfo: nil, repeats: true)
         isTimerRunning = true
+        stopButton.isEnabled = true
     }
     
     @objc func updateTimer() {
@@ -92,11 +105,31 @@ class RecordNewDataViewController: UIViewController {
     }
     
     func timeString(time:TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
+        let seconds = Int(time)
         
-        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+        return String(format: "%00002i", seconds)
+    }
+    
+    //Add Done Button to Number Keyboard
+    
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(RecordNewDataViewController.doneButtonAction))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.timerLabel.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction() {
+        self.timerLabel.resignFirstResponder()
     }
 
 }
