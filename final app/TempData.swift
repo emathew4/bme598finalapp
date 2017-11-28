@@ -12,9 +12,9 @@ class TempData: NSObject, NSCoding {
     
     //MARK: Properties
     
-    var date: String
-    var tempArray: [Float]
-    var time: [Float]
+    var date: Date
+    var tempArray: [Double]
+    var time: [Int]
     
     //MARK: Archiving Paths
     
@@ -31,7 +31,7 @@ class TempData: NSObject, NSCoding {
     
     //MARK: Initialization
     
-    init (date: String, tempArray: [Float], time: [Float]){
+    init (date: Date, tempArray: [Double], time: [Int]){
         self.date = date
         self.tempArray = tempArray
         self.time = time
@@ -46,15 +46,15 @@ class TempData: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let date = aDecoder.decodeObject(forKey: PropertyKey.date) as? String else {
+        guard let date = aDecoder.decodeObject(forKey: PropertyKey.date) as? Date else {
             return nil
         }
         
-        guard let tempArray = aDecoder.decodeObject(forKey: PropertyKey.tempArray) as? [Float] else {
+        guard let tempArray = aDecoder.decodeObject(forKey: PropertyKey.tempArray) as? [Double] else {
             return nil
         }
         
-        guard let time = aDecoder.decodeObject(forKey: PropertyKey.time) as? [Float] else {
+        guard let time = aDecoder.decodeObject(forKey: PropertyKey.time) as? [Int] else {
             return nil
         }
         

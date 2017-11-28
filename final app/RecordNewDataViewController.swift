@@ -14,7 +14,10 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
     
     //MARK: Properties
     
+    var temps = [TempData]()
+    
     var seconds = 30
+    var timeStep = 1 //time between each data reading
     var timer = Timer()
     var isTimerRunning = false
     var beanManager: PTDBeanManager?
@@ -185,6 +188,16 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
         let data = NSData(bytes: &lightState, length: MemoryLayout<Bool>.size)
         sendSerialData(beanState: data)
         print(FinalTempArray)
+        
+        let date = Date()
+        var time = [Int]()
+        for i in 0..<FinalTempArray.count {
+            time.append(i*timeStep)
+        }
+        
+        let newTempData = TempData(date: date, tempArray: FinalTempArray, time: time)
+        temps.append(newTempData)
+        saveTemps()
     }
     
     override func viewDidLoad() {
@@ -196,6 +209,12 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
         manager = CBCentralManager(delegate: self, queue: nil)
         beanManager = PTDBeanManager()
         beanManager!.delegate = self
+        
+        if let savedTemps = loadTemps() {
+            temps += savedTemps
+        } else {
+            temps = [TempData]()
+        }
 
         
         
@@ -282,6 +301,16 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
     
     @objc func doneButtonAction() {
         self.timerLabel.resignFirstResponder()
+    }
+    
+    //Saving and Loading Methods
+    
+    private func saveTemps() {
+        let _ = NSKeyedArchiver.archiveRootObject(temps, toFile: TempData.ArchiveURL.path)
+    }
+    
+    private func loadTemps() -> [TempData]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: TempData.ArchiveURL.path) as? [TempData]
     }
     
 }
