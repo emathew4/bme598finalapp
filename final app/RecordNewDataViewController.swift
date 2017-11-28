@@ -39,6 +39,7 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
     @IBOutlet weak var timerLabel: UITextField!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     //Scanning
@@ -149,7 +150,7 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
         // sending serial data to bean for commands
-        
+        activityIndicator.startAnimating()
         lightState = !lightState
         updateLedStatusText(lightState: lightState)
         let data = NSData(bytes: &lightState, length: MemoryLayout<Bool>.size)
@@ -177,6 +178,7 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
     }
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         timer.invalidate()
+        activityIndicator.stopAnimating()
         isTimerRunning = false
         startButton.isEnabled = true
         stopButton.isEnabled = false

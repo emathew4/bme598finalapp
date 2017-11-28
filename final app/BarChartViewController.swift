@@ -21,28 +21,7 @@ class BarChartViewController: UIViewController {
     @IBOutlet weak var barChartView: BarChartView!
     @IBOutlet weak var selectedTime: UITextField!
     @IBOutlet weak var displayedTemp: UILabel!
-    
-    @IBAction func timeToTemp(_ sender: UIButton) {
-        if let selectedTime = selectedTime.text, !selectedTime.isEmpty{
-            let time: Int = {Int(self.selectedTime.text!)!}()
-            if time > self.time.count-1 {
-                let timeTooLargeAlert = UIAlertController(title: "Time Out of Bounds", message: "Please enter a valid time.", preferredStyle: UIAlertControllerStyle.alert)
-                timeTooLargeAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-                
-                self.present(timeTooLargeAlert, animated: true, completion: nil)
-                displayedTemp.text = ""
-                
-            } else {
-                displayedTemp.text = String(temperature[time])
-            }
-            
-        } else {
-            let emptyFieldAlert = UIAlertController(title: "Field is Empty", message: "Please enter a value above.", preferredStyle: UIAlertControllerStyle.alert)
-            emptyFieldAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-            
-            self.present(emptyFieldAlert, animated: true, completion: nil)
-        }
-    }
+    @IBOutlet weak var averageTemp: UILabel!
     
     @IBAction func savesChart(_ sender: UIBarButtonItem) {
         let img = barChartView.getChartImage(transparent: false)
@@ -59,8 +38,16 @@ class BarChartViewController: UIViewController {
                 stringTimes.append("\(time[i])")
             }
             temperature = tempData.tempArray
+            
+            var total = 0.0
+            for temp in temperature {
+                total += temp
+            }
+            let tempAvg = total/Double(temperature.count)
+            averageTemp.text = String(tempAvg) + " °C"
         }
         addDoneButtonOnKeyboard()
+        displayedTemp.text = String(temperature[0])
         // Call function chart_Creation to create a bar chart
         chart_Creation(x: time, y: temperature)
     }
@@ -133,7 +120,25 @@ class BarChartViewController: UIViewController {
     }
     
     @objc func doneButtonAction() {
+        timeToTemp()
         self.selectedTime.resignFirstResponder()
+    }
+    
+    func timeToTemp() {
+        if let selectedTime = selectedTime.text, !selectedTime.isEmpty{
+            let time: Int = {Int(self.selectedTime.text!)!}()
+            if time > self.time.count-1 {
+                let timeTooLargeAlert = UIAlertController(title: "Time Out of Bounds", message: "Please enter a valid time.", preferredStyle: UIAlertControllerStyle.alert)
+                timeTooLargeAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                self.selectedTime.resignFirstResponder()
+                self.present(timeTooLargeAlert, animated: true, completion: nil)
+                displayedTemp.text = ""
+                
+            } else {
+                displayedTemp.text = String(temperature[time]) + " °C"
+            }
+            
+        }
     }
     
     
