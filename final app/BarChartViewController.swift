@@ -19,6 +19,30 @@ class BarChartViewController: UIViewController {
     var dataEntries: [BarChartDataEntry] = []
  
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var selectedTime: UITextField!
+    @IBOutlet weak var displayedTemp: UILabel!
+    
+    @IBAction func timeToTemp(_ sender: UIButton) {
+        if let selectedTime = selectedTime.text, !selectedTime.isEmpty{
+            let time: Int = {Int(self.selectedTime.text!)!}()
+            if time > self.time.count-1 {
+                let timeTooLargeAlert = UIAlertController(title: "Time Out of Bounds", message: "Please enter a valid time.", preferredStyle: UIAlertControllerStyle.alert)
+                timeTooLargeAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(timeTooLargeAlert, animated: true, completion: nil)
+                displayedTemp.text = ""
+                
+            } else {
+                displayedTemp.text = String(temperature[time])
+            }
+            
+        } else {
+            let emptyFieldAlert = UIAlertController(title: "Field is Empty", message: "Please enter a value above.", preferredStyle: UIAlertControllerStyle.alert)
+            emptyFieldAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(emptyFieldAlert, animated: true, completion: nil)
+        }
+    }
     
     @IBAction func savesChart(_ sender: UIBarButtonItem) {
         let img = barChartView.getChartImage(transparent: false)
@@ -36,6 +60,7 @@ class BarChartViewController: UIViewController {
             }
             temperature = tempData.tempArray
         }
+        addDoneButtonOnKeyboard()
         // Call function chart_Creation to create a bar chart
         chart_Creation(x: time, y: temperature)
     }
@@ -89,5 +114,27 @@ class BarChartViewController: UIViewController {
      }
      */
 
-
+    //MARK: Private Methods
+    
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(RecordNewDataViewController.doneButtonAction))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.selectedTime.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction() {
+        self.selectedTime.resignFirstResponder()
+    }
+    
+    
 }
