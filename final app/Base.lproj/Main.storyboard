@@ -69,7 +69,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EjM-Bi-2zk" id="ro8-5g-x90">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nma-58-eVk">
@@ -112,7 +112,7 @@
         <scene sceneID="YQJ-5r-Rsa">
             <objects>
                 <viewController id="LWQ-Lp-ycj" customClass="BarChartViewController" customModule="final_app" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ReV-t6-jft">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ReV-t6-jft">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -142,10 +142,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-XP-l0z" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="64" width="343" height="248"/>
+                                <rect key="frame" x="55" y="64" width="304" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YLabel" translatesAutoresizingMaskIntoConstraints="NO" id="opR-Wr-fDi">
+                                <rect key="frame" x="16" y="112" width="31" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time (s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ys-fq-VCs">
+                                <rect key="frame" x="173" y="320" width="69" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="hZe-mZ-S6g"/>
@@ -163,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QkR-A8-buh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3124" y="18"/>
+            <point key="canvasLocation" x="3124" y="17.541229385307346"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XXr-Qg-kdy">
@@ -283,4 +294,7 @@
             <point key="canvasLocation" x="1025" y="779"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="YLabel" width="15" height="77"/>
+    </resources>
 </document>

@@ -13,7 +13,7 @@ class BarChartViewController: UIViewController {
 
     var tempData: TempData?
     var time:[Int] = []
-    var months:[String] = []
+    var stringTimes:[String] = []
     var temperature:[Double] = []
     var points:[Double] = []
     var dataEntries: [BarChartDataEntry] = []
@@ -31,6 +31,9 @@ class BarChartViewController: UIViewController {
         // Data Source
         if let tempData = tempData {
             time = tempData.time
+            for i in 0..<time.count {
+                stringTimes.append("\(time[i])")
+            }
             temperature = tempData.tempArray
         }
         // Call function chart_Creation to create a bar chart
@@ -40,8 +43,6 @@ class BarChartViewController: UIViewController {
     
     func chart_Creation(x: [Int], y: [Double]) {
         barChartView.noDataText = "You need to provide data for the chart."
-        barChartView.noDataText.append("\n Explain user why the chart is empty")
-        barChartView.noDataText.append("\n Tell what they need to do in order to get data")
         
         for i in 0..<temperature.count {
             let dataEntry = BarChartDataEntry(x:Double(i), y: Double(temperature[i]))
@@ -53,11 +54,12 @@ class BarChartViewController: UIViewController {
         chartData.addDataSet(chart)
         chartData.setDrawValues(true)
         chartData.setValueFont(UIFont(name: "Verdana", size: 14.0)!)
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values:stringTimes)
         // barChartView.xAxis.setLabelCount(months.count, force: true)
         barChartView.xAxis.labelFont = UIFont(name: "Verdana", size: 15.0)!
         barChartView.leftAxis.labelFont = UIFont(name: "Verdana", size: 15.0)!
         barChartView.legend.font = UIFont(name: "Verdana", size: 15.0)!
+        barChartView.legend.enabled = false
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.xAxis.labelPosition = .bottom
         barChartView.xAxis.granularity = 1
