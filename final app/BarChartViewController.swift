@@ -11,6 +11,8 @@ import Charts
 
 class BarChartViewController: UIViewController {
 
+    var tempData: TempData?
+    var time:[Int] = []
     var months:[String] = []
     var temperature:[Double] = []
     var points:[Double] = []
@@ -25,17 +27,18 @@ class BarChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBackButton()
         // Do any additional setup after loading the view.
         // Data Source
-        months = ["Ja","Fe","Mar","Ap","May","Jun","July","Ago","Set","Oc","Nov","Dec"]
-        temperature = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+        if let tempData = tempData {
+            time = tempData.time
+            temperature = tempData.tempArray
+        }
         // Call function chart_Creation to create a bar chart
-        chart_Creation(x: months, y: temperature)
+        chart_Creation(x: time, y: temperature)
     }
     
     
-    func chart_Creation(x: [String], y: [Double]) {
+    func chart_Creation(x: [Int], y: [Double]) {
         barChartView.noDataText = "You need to provide data for the chart."
         barChartView.noDataText.append("\n Explain user why the chart is empty")
         barChartView.noDataText.append("\n Tell what they need to do in order to get data")
@@ -73,22 +76,6 @@ class BarChartViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func addBackButton() {
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage(named: "BackButton.png"), for: .normal)
-        backButton.setTitle(" Back", for: .normal)
-        backButton.setTitleColor(backButton.tintColor, for: .normal)
-        backButton.addTarget(self, action: #selector(self.backAction(_:)), for: .touchUpInside)
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-    }
-    
-    @objc func backAction(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
     
     /*
      // MARK: - Navigation
