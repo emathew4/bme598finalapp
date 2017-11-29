@@ -47,7 +47,7 @@ class BarChartViewController: UIViewController {
             averageTemp.text = String(tempAvg) + " °C"
         }
         addDoneButtonOnKeyboard()
-        displayedTemp.text = String(temperature[0])
+        displayedTemp.text = String(temperature[0]) + " °C"
         // Call function chart_Creation to create a bar chart
         chart_Creation(x: time, y: temperature)
     }

@@ -11,6 +11,12 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Optima.ttc">
+            <string>Optima-Italic</string>
+            <string>Optima-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Temp View Controller-->
         <scene sceneID="pAA-W6-vsx">
@@ -27,17 +33,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gd8-gE-7mo">
-                                <rect key="frame" x="100" y="292" width="175" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="View Data">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="y8U-bb-gRU" kind="show" id="Gtz-PO-zlk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgF-cq-Obh">
                                 <rect key="frame" x="55" y="514" width="265" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,6 +42,21 @@
                                 </state>
                                 <connections>
                                     <segue destination="IZg-xL-uu7" kind="show" id="NYy-Zi-dRe"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="H8q-IE-Pcs">
+                                <rect key="frame" x="67" y="150" width="240" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gd8-gE-7mo">
+                                <rect key="frame" x="100" y="396" width="175" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="View Data">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="y8U-bb-gRU" kind="show" id="Gtz-PO-zlk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -123,7 +133,7 @@
                                 <items>
                                     <barButtonItem title="?" id="XPJ-lX-u8o">
                                         <connections>
-                                            <segue destination="UHx-Ut-5dT" kind="show" id="zfG-BN-Ipf"/>
+                                            <segue destination="Ci8-65-cwY" kind="show" id="etA-dR-YEj"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -244,21 +254,6 @@
             </objects>
             <point key="canvasLocation" x="2600.8000000000002" y="17.541229385307346"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="XXr-Qg-kdy">
-            <objects>
-                <viewController id="UHx-Ut-5dT" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kHR-2z-sDH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="rPg-Kw-bEe"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Kj-wD-AgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3348" y="18"/>
-        </scene>
         <!--Record New Data View Controller-->
         <scene sceneID="2BE-TJ-34E">
             <objects>
@@ -368,8 +363,74 @@
             </objects>
             <point key="canvasLocation" x="1025" y="779"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="m2z-W7-QRK">
+            <objects>
+                <viewController id="Ci8-65-cwY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KsE-A1-b99"/>
+                        <viewControllerLayoutGuide type="bottom" id="e6u-aL-OOh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e5f-ON-rc9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mO2-nZ-tPT">
+                                <rect key="frame" x="0.0" y="102" width="375" height="173"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">TempSense is an app that can be used to assist healthcare providers in temperature monitoring of various surfaces during different ablation procedures. Through the use of versatile equipment and technology, TempSense is a revolutionary breakthrough in temperature monitoring and can be very beneficial to healthcare providers.</string>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="What is TempSense?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eKn-nU-Hpm">
+                                <rect key="frame" x="57" y="64" width="261" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="What can TempSense do for me?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-2m-x8W">
+                                <rect key="frame" x="6" y="283" width="380" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGO-p6-7yH">
+                                <rect key="frame" x="0.0" y="321" width="375" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">TempSense can be used to create data sets of temperatures over a specified period of time. Once the temperature data is obtained after selecting "Record New Data", the data can be graphed. Data at a certain point can be obtained by inputting the time in seconds. The temperature at that specific time will be output in degrees Celsius.</string>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Application created and designed by TAC,(Tachycardia Atrioesophageal Cooling) 2017" translatesAutoresizingMaskIntoConstraints="NO" id="43X-Mh-xav">
+                                <rect key="frame" x="0.0" y="606" width="375" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Optima-Italic" family="Optima" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="For any questions and concerns regarding TempSense, please contact help@tempsense.com" translatesAutoresizingMaskIntoConstraints="NO" id="wsg-1X-yxw">
+                                <rect key="frame" x="0.0" y="523" width="392" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="jNo-Ie-rWB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Rr-HN-Ebt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3348" y="17.541229385307346"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="113" height="113"/>
         <image name="YLabel" width="15" height="77"/>
     </resources>
 </document>
