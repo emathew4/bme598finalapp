@@ -54,6 +54,60 @@ class BarChartViewController: UIViewController {
     
     
     func chart_Creation(x: [Int], y: [Double]) {
+       
+        /*
+        lineView.noDataText = "You need to provide data for the chart."
+        lineView.backgroundColor = UIColor.black
+        
+        for i in 0..<temperature.count {
+            dataEntries.append(ChartDataEntry(x: Double(i), y: Double(temperature[i])))
+            
+        }
+        
+        let chart = LineChartDataSet(values: dataEntries, label: "Temperature")
+        let line_Chart = LineChartData()
+        line_Chart.addDataSet(chart)
+        line_Chart.setDrawValues(true)
+        line_Chart.setValueTextColor(UIColor.orange)
+        chart.colors = [UIColor.orange]
+        chart.setCircleColor(UIColor.orange)
+        chart.circleHoleColor = UIColor.orange
+        // let gdtColors = [UIColor.orange.cgColor, UIColor.clear.cgColor] as CFArray
+        // let locColors:[CGFloat] = [1.0, 0.0]
+        // guard let gdt = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gdtColors, locations: locColors) else {
+        //   print("Error"); return
+        // }
+        chart.fill = Fill.fillWithColor(UIColor.orange)
+        //chart.fill = Fill.fillWithRadialGradient(gdt)
+        // chart.fill = Fill.fillWithLinearGradient(gdt, angle: 120.0)
+        
+        chart.drawFilledEnabled = true
+        
+        line_Chart.setValueFont(UIFont(name: "Verdana", size: 14.0)!)
+        lineView.xAxis.valueFormatter = IndexAxisValueFormatter(values: stringTimes)
+        lineView.xAxis.labelFont = UIFont(name: "Verdana", size: 15.0)!
+        lineView.leftAxis.labelFont = UIFont(name: "Verdana", size: 15.0)!
+        lineView.legend.font = UIFont(name: "Verdana", size: 15.0)!
+        lineView.legend.textColor = UIColor.orange
+        lineView.legend.enabled = false
+        lineView.xAxis.drawGridLinesEnabled = false
+        lineView.xAxis.labelPosition = .bottom
+        lineView.xAxis.labelTextColor = UIColor.orange
+        lineView.xAxis.granularity = 1
+        lineView.chartDescription?.enabled = false
+        lineView.rightAxis.enabled = false
+        lineView.leftAxis.drawGridLinesEnabled = false
+        lineView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        // Add limit line
+        let limitLine = ChartLimitLine(limit: 10.0, label: "Threshold")
+        limitLine.lineColor = UIColor.red
+        limitLine.valueTextColor = UIColor.red
+        lineView.leftAxis.addLimitLine(limitLine)
+        lineView.leftAxis.labelTextColor = UIColor.orange
+        lineView.data = line_Chart
+        */
+        
+        
         barChartView.noDataText = "You need to provide data for the chart."
         
         for i in 0..<temperature.count {
@@ -83,6 +137,7 @@ class BarChartViewController: UIViewController {
         let limitLine = ChartLimitLine(limit: 10.0, label: "Temperature Threshold")
         barChartView.leftAxis.addLimitLine(limitLine)
         barChartView.data = chartData
+        
         
     }
     

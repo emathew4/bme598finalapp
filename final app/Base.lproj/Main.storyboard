@@ -123,7 +123,7 @@
         <!--Bar Chart View Controller-->
         <scene sceneID="YQJ-5r-Rsa">
             <objects>
-                <viewController id="LWQ-Lp-ycj" customClass="BarChartViewController" customModule="final_app" sceneMemberID="viewController">
+                <viewController id="LWQ-Lp-ycj" customClass="BarChartViewController" customModule="final_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ReV-t6-jft">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,7 +245,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="averageTemp" destination="Ygf-re-EWL" id="w92-c5-qll"/>
-                        <outlet property="barChartView" destination="eB6-XP-l0z" id="hbb-Z0-xgl"/>
+                        <outlet property="barChartView" destination="eB6-XP-l0z" id="dvv-XP-dRU"/>
                         <outlet property="displayedTemp" destination="V2X-R3-w66" id="HCs-Xq-Yg1"/>
                         <outlet property="selectedTime" destination="Yx6-kA-xQd" id="a1Y-P0-6QM"/>
                     </connections>
