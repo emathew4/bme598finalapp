@@ -144,7 +144,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-XP-l0z" customClass="BarChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-XP-l0z" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="55" y="64" width="304" height="248"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -245,8 +245,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="averageTemp" destination="Ygf-re-EWL" id="w92-c5-qll"/>
-                        <outlet property="barChartView" destination="eB6-XP-l0z" id="dvv-XP-dRU"/>
                         <outlet property="displayedTemp" destination="V2X-R3-w66" id="HCs-Xq-Yg1"/>
+                        <outlet property="lineView" destination="eB6-XP-l0z" id="Mfz-2b-q9V"/>
                         <outlet property="selectedTime" destination="Yx6-kA-xQd" id="a1Y-P0-6QM"/>
                     </connections>
                 </viewController>

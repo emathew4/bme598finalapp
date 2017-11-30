@@ -16,15 +16,16 @@ class BarChartViewController: UIViewController {
     var stringTimes:[String] = []
     var temperature:[Double] = []
     var points:[Double] = []
-    var dataEntries: [BarChartDataEntry] = []
+    var dataEntries: [ChartDataEntry] = []
  
-    @IBOutlet weak var barChartView: BarChartView!
+
+    @IBOutlet weak var lineView: LineChartView!
     @IBOutlet weak var selectedTime: UITextField!
     @IBOutlet weak var displayedTemp: UILabel!
     @IBOutlet weak var averageTemp: UILabel!
     
     @IBAction func savesChart(_ sender: UIBarButtonItem) {
-        let img = barChartView.getChartImage(transparent: false)
+        let img = lineView.getChartImage(transparent: false)
         UIImageWriteToSavedPhotosAlbum(img!, nil, nil, nil)
     }
     
@@ -55,7 +56,7 @@ class BarChartViewController: UIViewController {
     
     func chart_Creation(x: [Int], y: [Double]) {
        
-        /*
+        
         lineView.noDataText = "You need to provide data for the chart."
         lineView.backgroundColor = UIColor.black
         
@@ -105,9 +106,9 @@ class BarChartViewController: UIViewController {
         lineView.leftAxis.addLimitLine(limitLine)
         lineView.leftAxis.labelTextColor = UIColor.orange
         lineView.data = line_Chart
-        */
         
         
+        /*
         barChartView.noDataText = "You need to provide data for the chart."
         
         for i in 0..<temperature.count {
@@ -137,7 +138,7 @@ class BarChartViewController: UIViewController {
         let limitLine = ChartLimitLine(limit: 10.0, label: "Temperature Threshold")
         barChartView.leftAxis.addLimitLine(limitLine)
         barChartView.data = chartData
-        
+        */
         
     }
     
