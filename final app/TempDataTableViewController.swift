@@ -116,7 +116,7 @@ class TempDataTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
 
         // Get the new view controller using segue.destinationViewController.
-        let nextViewController = segue.destination as! BarChartViewController
+        let nextViewController = segue.destination as! ChartViewController
         let selectedTempDataCell = sender as! TempDataTableViewCell
         let indexPath = tableView.indexPath(for: selectedTempDataCell)
         // Pass the selected object to the new view controller.

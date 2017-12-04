@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="AmericanTypewriter.ttc">
-            <string>AmericanTypewriter</string>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
         </array>
     </customFonts>
     <scenes>
@@ -23,30 +23,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TempSense" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QCi-i3-A3Q">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="pt3-cz-8xo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TempSense" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QCi-i3-A3Q">
                                 <rect key="frame" x="45" y="51" width="284" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="0ju-gB-l1g"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="48"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="aOR-OH-0T6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="aOR-OH-0T6">
                                 <rect key="frame" x="67" y="185" width="240" height="170"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="is loading......" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCY-Cg-Lgy">
-                                <rect key="frame" x="67" y="363" width="240" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="is loading......" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCY-Cg-Lgy">
+                                <rect key="frame" x="67" y="413" width="240" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hhU-8e-D0e"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="48"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchBottom" translatesAutoresizingMaskIntoConstraints="NO" id="sCQ-Wo-qs1">
-                                <rect key="frame" x="67" y="470" width="240" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.47357382463357545" blue="0.31281572906372324" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pt3-cz-8xo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="0kj-SP-OWc"/>
+                            <constraint firstItem="aOR-OH-0T6" firstAttribute="top" secondItem="QCi-i3-A3Q" secondAttribute="bottom" constant="71" id="2My-Hs-Dwn"/>
+                            <constraint firstItem="QCi-i3-A3Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="31" id="2St-3H-djB"/>
+                            <constraint firstItem="QCi-i3-A3Q" firstAttribute="centerX" secondItem="aOR-OH-0T6" secondAttribute="centerX" id="6dZ-4y-QBt"/>
+                            <constraint firstItem="aOR-OH-0T6" firstAttribute="leading" secondItem="vCY-Cg-Lgy" secondAttribute="leading" id="Ie1-22-GSE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vCY-Cg-Lgy" secondAttribute="bottom" constant="204" id="Mig-va-PbK"/>
+                            <constraint firstItem="QCi-i3-A3Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="QYa-AS-4xf"/>
+                            <constraint firstItem="aOR-OH-0T6" firstAttribute="trailing" secondItem="vCY-Cg-Lgy" secondAttribute="trailing" id="SSB-Lo-shX"/>
+                            <constraint firstItem="vCY-Cg-Lgy" firstAttribute="top" secondItem="aOR-OH-0T6" secondAttribute="bottom" constant="58" id="cnH-wo-Yeb"/>
+                            <constraint firstItem="pt3-cz-8xo" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="e0W-AL-6Ik"/>
+                            <constraint firstAttribute="trailing" secondItem="pt3-cz-8xo" secondAttribute="trailing" id="klV-b0-CsZ"/>
+                            <constraint firstItem="pt3-cz-8xo" firstAttribute="centerX" secondItem="QCi-i3-A3Q" secondAttribute="centerX" id="pXf-bc-qmQ"/>
+                            <constraint firstItem="aOR-OH-0T6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="s39-Qn-ncL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -56,7 +72,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchBottom" width="198" height="191"/>
-        <image name="Logo" width="113" height="113"/>
+        <image name="Background" width="375" height="667"/>
+        <image name="Logo" width="413" height="341"/>
     </resources>
 </document>

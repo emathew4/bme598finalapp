@@ -23,7 +23,7 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
     var beanManager: PTDBeanManager?
     var yourBean: PTDBean?
     var lightState: Bool = false
-    var newTemp: Double = 1
+    var newTemp: Double = -1
     var isBluetoothOn = false
     
     @IBOutlet weak var ledTextLabel: UILabel!
@@ -125,17 +125,12 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?){
         
         if characteristic.uuid == BEAN_SCRATCH_UUID {
-            
-            
             var tempA = characteristic.value
             let value = tempA?.withUnsafeMutableBytes{(ptr: UnsafeMutablePointer<Double>) ->Double in return ptr.pointee}
             newTemp = value!*24/(1.1363509854348671e-322)
             
-            
-            
-            
         }
-        
+
     }
     
     // LED functions
@@ -200,6 +195,11 @@ class RecordNewDataViewController: UIViewController, CBCentralManagerDelegate, C
         let newTempData = TempData(date: date, tempArray: FinalTempArray, time: time)
         temps.append(newTempData)
         saveTemps()
+        let saveAlert = UIAlertController(title: "Data Saved", message: "Your data was saved!", preferredStyle: UIAlertControllerStyle.alert)
+        saveAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(saveAlert, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
